@@ -1,7 +1,1 @@
-# command.line.guess
-
-guess a number game
-
-
-
-
+math simulator of integer c
