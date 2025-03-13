@@ -1,1 +1,1 @@
-math simulator of integer c
+guess a number
