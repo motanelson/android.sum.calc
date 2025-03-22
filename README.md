@@ -1,2 +1,2 @@
-loto android
+calc sum android
 
