@@ -11,43 +11,48 @@ import android.app.AlertDialog;
 import android.app.Activity;
 import android.widget.Toast;
 import java.util.Random;
+import 	java.nio.charset.Charset;
+import android.app.Activity; 
+import android.view.View; 
+import android.view.View.OnClickListener; 
+import android.widget.Button; 
+import android.widget.EditText; 
+import android.widget.TextView;
 
 public class MainActivity extends Activity
 {
-    private TextView textView;
-    private final Handler handler = new Handler();
-    private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
-    
-    private final Runnable updateTimeRunnable = new Runnable() {
-        
-        public void run() {
-            Random r = new Random();
-            
-            int n=0;
-            int i =r.nextInt(49)+1;
-            String s = "";
-            for(n=0;n<8;n++){
-                     i =r.nextInt(49)+1;
-                     s=s+Integer.toString(i);
-                     if (n!=7)s=s+",";
-            }
-            textView.setText(s);
-            handler.postDelayed(this, 10000); // Atualiza a cada segundo
-        }
-    };
-    
+    Double d=0.00;
+    /** Called when the activity is first created. */
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+		
         
-        textView = (TextView)findViewById(R.id.textView);
-        handler.post(updateTimeRunnable);
+		final Button B = (Button)findViewById(R.id.button); 
+
+		final EditText ED = (EditText)findViewById(R.id.textEdit);
+
+		final TextView TV = (TextView)findViewById(R.id.textView);
+
+		B.setOnClickListener(new OnClickListener(){ 
+				
+				public void onClick(View arg0)
+				{ 
+					String s="",ss="";
+                                                                    double i = 0.00;
+					String TextEntered = ED.getText().toString(); 
+                                                                     i=Double.parseDouble(TextEntered);
+                                                                     d=d+i;
+                                                                     TV.setText(Double.toString(d));
+		}	
+                  });		
     }
     
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        handler.removeCallbacks(updateTimeRunnable);
+        
     }
 }
