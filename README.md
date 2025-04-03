@@ -1,2 +1,2 @@
-a4 page division the bitmap can be copy into word document
+a4 page division the bitmap make you blockchain example
 
