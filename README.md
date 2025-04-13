@@ -1,2 +1,2 @@
-a4 page division the bitmap make you blockchain example
+download linux kernel from source
 
